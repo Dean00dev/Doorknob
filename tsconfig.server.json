@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "allowImportingTsExtensions": false,
+    "noEmit": false,
+    "outDir": "server-dist",
+    "rootDir": ".",
+    "declaration": false,
+    "lib": ["ES2022"],
+    "types": ["node"]
+  },
+  "include": ["server/**/*.ts", "src/contracts.ts"]
+}
