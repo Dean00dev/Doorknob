@@ -22,6 +22,8 @@ appointment.
 - The person's named worry is copied from their reviewed answer, not generated.
 - Suggested verbatim quotations are retained only when they occur in the
   reviewed transcript.
+- Emergency, limitation, privacy, and draft-warning context remains visible in
+  printed output.
 - Inputs and model outputs are length- and schema-bounded.
 - No database, analytics package, or external webfont request ships here.
 

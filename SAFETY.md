@@ -14,6 +14,8 @@ clearance to wait.
 6. The named worry comes directly from the reviewed worry answer.
 7. Text labelled as an exact quotation must occur in the reviewed transcript.
 8. Every generated brief is labelled as a draft requiring human correction.
+9. Printing a brief retains emergency, limitation, privacy, and draft-warning
+   context.
 
 ## Known limitations
 

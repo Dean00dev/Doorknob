@@ -12,3 +12,4 @@ First public-source candidate.
 - Grounded the named worry and verbatim quotations in reviewed answers.
 - Added schema, length, request-size, timeout, and rate-limit boundaries.
 - Added safety, privacy, security, contribution, conduct, test, and CI material.
+- Preserved safety and limitation context in printed output.

@@ -55,4 +55,9 @@ textarea { width: 100%; resize: vertical; color: #33302e; background: #fffdf9; b
 
 @media (max-width: 520px) { .button-row { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; } }
-@media print { .button, .emergency-notice, .masthead, .privacy-note, .limitation, .draft-warning { display: none !important; } .app-shell { width: 100%; padding: 0; } .card { border: 0; padding: 0; } }
+@media print {
+  .button, .masthead { display: none !important; }
+  .app-shell { width: 100%; padding: 0; }
+  .card { border: 0; padding: 0; }
+  .emergency-notice, .draft-warning, .privacy-note, .limitation { break-inside: avoid; }
+}
