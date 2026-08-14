@@ -77,6 +77,17 @@ npm run check
 `npm run check` performs a strict TypeScript/build gate followed by the unit and
 API-boundary tests.
 
+## Unbaselined assurance-claim report
+
+The [ClaimFence report workflow](.github/workflows/claimfence-report.yml) scans this
+repository without a baseline and publishes JSON and SARIF findings as a workflow
+artifact. The Action is pinned to the reviewed ClaimFence v0.3.0 commit.
+
+It runs in explicit report-only mode. A successful workflow means the scanner completed
+and the unbaselined report was published; it does **not** mean the documentation has zero
+findings or that its claims were factually audited. The workflow summary and artifact are
+the evidence to inspect.
+
 ## Architecture
 
 ```mermaid

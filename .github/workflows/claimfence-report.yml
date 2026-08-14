@@ -1,0 +1,44 @@
+name: ClaimFence report (non-blocking)
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "**/*.md"
+      - ".github/workflows/claimfence-report.yml"
+  pull_request:
+    paths:
+      - "**/*.md"
+      - ".github/workflows/claimfence-report.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - name: Generate unbaselined ClaimFence reports
+        id: claimfence
+        uses: Dean00dev/ClaimFence@f3d89efd3ba20b6953fccbee848226efbbc6f8f0 # v0.3.0
+        with:
+          paths: .
+          fail-on: none
+          json-output: claimfence.json
+          sarif-output: claimfence.sarif
+      - name: Verify report-only semantics
+        env:
+          CLAIMFENCE_OUTCOME: ${{ steps.claimfence.outputs.outcome }}
+        run: test "$CLAIMFENCE_OUTCOME" = "report-only"
+      - name: Upload unbaselined findings
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: claimfence-unbaselined-report
+          path: |
+            claimfence.json
+            claimfence.sarif
+          if-no-files-found: error
+          retention-days: 30
